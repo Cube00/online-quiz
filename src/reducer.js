@@ -1,9 +1,13 @@
 const defaultState = {
+  data: "",
   category: "",
   difficulty: "",
 };
 
 const reducer = (state = defaultState, action) => {
+  if (action.type === "SET_DATA") {
+    return { ...state, data: action.content };
+  }
   if (action.type === "SET_CATEGORY") {
     return {
       ...state,

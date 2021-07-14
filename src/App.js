@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./home";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./reducer";
+import Home from "./home";
+import Quiz from "./quiz";
 
 function App() {
   const compose =
@@ -17,6 +18,9 @@ function App() {
         <Provider store={store}>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/quiz">
+            <Quiz />
           </Route>
         </Provider>
       </Switch>

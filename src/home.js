@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { categoryList } from "./categoryList";
 import { Link } from "react-router-dom";
 
-const Home = ({ state, catSet, setDiff }) => {
+const Home = ({ state, catSet, setDiff, dataSet }) => {
   const [data, setData] = useState([]);
   const { category, difficulty } = state;
   const diff = [
@@ -46,7 +46,7 @@ const Home = ({ state, catSet, setDiff }) => {
           </li>
         );
       })}
-      <Link to="/quiz">
+      <Link to="/quiz" onClick={() => dataSet(data)}>
         <button>START QUIZ</button>
       </Link>
     </>
@@ -59,6 +59,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    dataSet: (data) => {
+      dispatch({ type: "SET_DATA", content: data });
+    },
     catSet: (cat, name) => {
       dispatch({
         type: "SET_CATEGORY",
