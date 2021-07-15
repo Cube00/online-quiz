@@ -11,10 +11,12 @@ const Quiz = ({ state }) => {
 
   const { data } = state;
   if (data) {
-    var diffAns = data[index].incorrect_answers.map((e) => {
+    var question = data[index].question;
+    var correctA = data[index].correct_answer;
+    var answerTogether = data[index].incorrect_answers.map((e) => {
       return e;
     });
-    diffAns.push(data[index].correct_answer);
+    answerTogether.push(correctA);
   }
 
   const moveToNext = () => {
@@ -28,27 +30,25 @@ const Quiz = ({ state }) => {
     setCheckValue("");
   };
 
-  useEffect(() => {
-    if (data) setQuest(diffAns.sort(() => 0.5 - Math.random()));
-  }, [index]);
-
   const correctAnswer = (e) => {
     setCheckValue(e);
-    if (e == data[index].correct_answer) {
+    if (e == correctA) {
       setScore(score + 1);
     }
   };
 
   const colorSwitch = (x) => {
-    if (checkValue == x && checkValue == data[index].correct_answer)
-      return "selected";
-    else if (checkValue == x && checkValue !== data[index].correct_answer)
-      return "wrong";
-    else if (x == data[index].correct_answer) return "correct";
+    if (checkValue == x && checkValue == correctA) return "selected";
+    else if (checkValue == x && checkValue !== correctA) return "wrong";
+    else if (x == correctA) return "correct";
     else {
       return "default";
     }
   };
+
+  useEffect(() => {
+    if (data) setQuest(answerTogether.sort(() => 0.5 - Math.random()));
+  }, [index]);
 
   return (
     <>
@@ -57,7 +57,7 @@ const Quiz = ({ state }) => {
           <h2>QUIZ</h2>
           {finish === false ? (
             <div className="quiz-box">
-              <h4>{data[index].question}</h4>
+              <h4>{question}</h4>
               {quest.map((answers) => {
                 return (
                   <button

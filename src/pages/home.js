@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Home = ({ state, catSet, setDiff, dataSet }) => {
   const [data, setData] = useState([]);
-  const { category, difficulty } = state;
   const [changeClass, setChangeClass] = useState(false);
   const [catClass, setCatClass] = useState(false);
   const [message, setMessage] = useState(false);
+  const { category, difficulty } = state;
   const diff = [
     { id: 1, name: "easy" },
     { id: 2, name: "medium" },
@@ -63,16 +63,16 @@ const Home = ({ state, catSet, setDiff, dataSet }) => {
             changeClass ? "select-difficulty block" : "select-difficulty"
           }
         >
-          {diff.map((e) => {
+          {diff.map((different) => {
             return (
               <li
-                key={e.id}
+                key={different.id}
                 onClick={() => {
-                  setDiff(e.name);
+                  setDiff(different.name);
                   setChangeClass(false);
                 }}
               >
-                {e.name}
+                {different.name}
               </li>
             );
           })}
