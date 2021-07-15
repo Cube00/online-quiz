@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import reducer from "./reducer";
-import Home from "./home";
-import Quiz from "./quiz";
+import reducer from "./redux/reducer";
+import Home from "./pages/home";
+import Quiz from "./pages/quiz";
 
 function App() {
   const compose =

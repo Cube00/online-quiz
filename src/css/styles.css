@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  background-color: #ffda62;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-category,
+.select-difficulty {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.block-set-questions {
+  position: relative;
+  width: 700px;
+  padding: 30px 40px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.selected-category {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #f3f5f7;
+  cursor: pointer;
+}
+
+.block-set-questions h2 {
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  font-size: 20px;
+}
+
+.block-set-questions h2:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  border-radius: 30px;
+  background-color: #f3f5f7;
+}
+
+.block-set-questions h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+  height: 6px;
+  border-radius: 30px;
+  background-color: #ff5161;
+}
+
+.select-category::-webkit-scrollbar {
+  width: 1em;
+}
+
+.select-category::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.select-category::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.start-btn {
+  margin: 15px 0;
+  padding: 10px;
+  background: #fe5060;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.select-difficulty {
+  position: absolute;
+  width: 87%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid#f4f4f4;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-difficulty li {
+  cursor: pointer;
+  margin: 5px;
+}
+
+.message {
+  display: none;
+  position: absolute;
+  top: 0;
+  margin-top: 20px;
+  background-color: #ddb946;
+  padding: 10px;
+  border-radius: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.active {
+  display: block;
+}
+
+.btn-option {
+  display: block;
+  margin: 15px 0;
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
+  background-color: #f3f5f7;
+  color: #1e3356;
+  border: none;
+  border-radius: 50px;
+}
+
+.selected {
+  background-color: #1fdf60;
+}
+
+.wrong {
+  background-color: #f85060;
+}
+
+.correct {
+  background-color: #1fdf60;
+}
+
+.next {
+  background-color: #fff;
+  padding: 10px 20px;
+  border: 1px solid#f2f2f2;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.retry {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #red;
+  color: white;
+  border: none;
+}
